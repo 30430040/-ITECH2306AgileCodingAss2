@@ -21,6 +21,7 @@ public class HotelMenu {
             System.out.println("0. Exit\n");
             int option = scanner.nextInt();
             scanner.nextLine();
+            
             switch (option) {
                 case 1:
                     makeGeneralGuestBooking();
