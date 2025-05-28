@@ -299,7 +299,7 @@ public class HotelMenu {
         if (deposit < cost * 0.5 || deposit > cost) {
             System.out.println("Invalid deposit amount. Must be at least 50% and no more than total.");
             return;
-        }
+        } 
 
         ExtendedBooking booked = hotel.addBusinessGuestBooking((BusinessGuest) guest, startDay, nights, type, cost, deposit, offer, breakfast);
         if (booked != null) {
