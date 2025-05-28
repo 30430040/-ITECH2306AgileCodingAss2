@@ -18,6 +18,7 @@ public class HotelMenu {
             System.out.println("2. Delete booking");
             System.out.println("3. Check room status for a day");
             System.out.println("4. Create a business guest booking");
+            System.out.println("5. View business booking summary");
             System.out.println("0. Exit\n");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -34,6 +35,9 @@ public class HotelMenu {
                 	break;
                 case 4:
                 	makeBusinessGuestBooking();
+                    break;
+                case 5:
+                    hotel.printBusinessBookingSummary();
                     break;
                 case 0:
                     System.out.println("Exiting. Thank you so much for using this.");
