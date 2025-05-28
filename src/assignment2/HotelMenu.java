@@ -32,7 +32,7 @@ public class HotelMenu {
                 	checkRoomStatusForDay();
                 	break;
                 case 4:
-                    makeBusinessGuestBooking();
+                	makeBusinessGuestBooking();
                     break;
                 case 0:
                     System.out.println("Exiting. Thank you so much for using this.");
