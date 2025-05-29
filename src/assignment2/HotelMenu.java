@@ -23,6 +23,7 @@ public class HotelMenu {
             System.out.println("7. Cancel a booking by ID");
             System.out.println("8. View detailed business booking summary");
             System.out.println("9. Launch General Guest Booking GUI");
+            System.out.println("10. Restore all important data from a file");
             System.out.println("0. Exit\n");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -55,6 +56,9 @@ public class HotelMenu {
                 case 9:
                     GeneralGuestBookingGUI.launch(hotel);
                     break;
+                case 10:
+                	hotel.processAgencyBookings("agency-bookings.txt");
+                	break;
                 case 0:
                     System.out.println("Exiting. Thank you so much for using this.");
                     return;
