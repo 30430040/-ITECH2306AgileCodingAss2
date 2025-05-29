@@ -19,6 +19,7 @@ public class HotelMenu {
             System.out.println("3. Check room status for a day");
             System.out.println("4. Create a business guest booking");
             System.out.println("5. View business booking summary");
+            System.out.println("6. View all bookings for a guest");
             System.out.println("0. Exit\n");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -38,6 +39,9 @@ public class HotelMenu {
                     break;
                 case 5:
                     hotel.printBusinessBookingSummary();
+                    break;
+                case 6:
+                    viewBookingsForGuest();
                     break;
                 case 0:
                     System.out.println("Exiting. Thank you so much for using this.");
@@ -312,6 +316,12 @@ public class HotelMenu {
         } else {
             System.out.println("No available room of selected type.");
         }
+    }
+    
+    private void viewBookingsForGuest() {
+        System.out.print("Enter guest name: ");
+        String name = scanner.nextLine();
+        hotel.printBookingsForGuest(name);
     }
 
     // Program Commencement point
