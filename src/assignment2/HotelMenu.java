@@ -20,6 +20,7 @@ public class HotelMenu {
             System.out.println("4. Create a business guest booking");
             System.out.println("5. View business booking summary");
             System.out.println("6. View all bookings for a guest");
+            System.out.println("7. Cancel a booking by ID");
             System.out.println("0. Exit\n");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -42,6 +43,9 @@ public class HotelMenu {
                     break;
                 case 6:
                     viewBookingsForGuest();
+                    break;
+                case 7:
+                    cancelBookingById();
                     break;
                 case 0:
                     System.out.println("Exiting. Thank you so much for using this.");
@@ -322,6 +326,21 @@ public class HotelMenu {
         System.out.print("Enter guest name: ");
         String name = scanner.nextLine();
         hotel.printBookingsForGuest(name);
+    }
+    
+    private void cancelBookingById() {
+        System.out.print("Enter booking ID to cancel: ");
+        int bookingId = scanner.nextInt();
+        System.out.print("Enter current day (1-30): ");
+        int currentDay = scanner.nextInt();
+        scanner.nextLine(); // flush
+
+        boolean result = hotel.cancelBookingById(bookingId, currentDay);
+        if (result) {
+            System.out.println("Booking successfully cancelled.");
+        } else {
+            System.out.println("Cancellation failed.");
+        }
     }
 
     // Program Commencement point
