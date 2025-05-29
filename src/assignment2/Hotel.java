@@ -287,7 +287,28 @@ public class Hotel implements Serializable
 	    return true;
 	}
 
-   public void printDetailedBusinessSummary() {
+   
+   public void saveToFile(String filename) {
+	    try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
+	        out.writeObject(this);
+	        System.out.println("Hotel data saved to " + filename);
+	    } catch (IOException e) {
+	        System.out.println("Error saving hotel data: " + e.getMessage());
+	    }
+	}
+
+	public static Hotel loadFromFile(String filename) {
+	    try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
+	        Hotel hotel = (Hotel) in.readObject();
+	        System.out.println("Hotel data loaded from " + filename);
+	        return hotel;
+	    } catch (IOException | ClassNotFoundException e) {
+	        System.out.println("Error loading hotel data: " + e.getMessage());
+	        return new Hotel(); 
+	    }
+	}
+	
+	public void printDetailedBusinessSummary() {
 	    System.out.println("====== Detailed Business Booking Summary ======\n");
 
 	    for (Business business : businesses.values()) {
@@ -325,26 +346,6 @@ public class Hotel implements Serializable
 	    }
 	}
 
-   public void saveToFile(String filename) {
-	    try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
-	        out.writeObject(this);
-	        System.out.println("Hotel data saved to " + filename);
-	    } catch (IOException e) {
-	        System.out.println("Error saving hotel data: " + e.getMessage());
-	    }
-	}
-
-	public static Hotel loadFromFile(String filename) {
-	    try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
-	        Hotel hotel = (Hotel) in.readObject();
-	        System.out.println("Hotel data loaded from " + filename);
-	        return hotel;
-	    } catch (IOException | ClassNotFoundException e) {
-	        System.out.println("Error loading hotel data: " + e.getMessage());
-	        return new Hotel(); 
-	    }
-	}
-	
 	public void processAgencyBookings(String filename) {
 	    try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
 	        int nights = Integer.parseInt(reader.readLine().trim()); // shared value

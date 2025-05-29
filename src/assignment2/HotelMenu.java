@@ -21,6 +21,7 @@ public class HotelMenu {
             System.out.println("5. View business booking summary");
             System.out.println("6. View all bookings for a guest");
             System.out.println("7. Cancel a booking by ID");
+            System.out.println("8. View detailed business booking summary");
             System.out.println("0. Exit\n");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -46,6 +47,9 @@ public class HotelMenu {
                     break;
                 case 7:
                     cancelBookingById();
+                    break;
+                case 8:
+                    hotel.printDetailedBusinessSummary();
                     break;
                 case 0:
                     System.out.println("Exiting. Thank you so much for using this.");
